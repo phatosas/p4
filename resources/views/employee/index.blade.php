@@ -2,7 +2,7 @@
 
 
 @section('title')
-    All the employees
+    All Employees
 @stop
 
 
@@ -17,7 +17,15 @@ such as a page specific stylesheets.
 
 
 @section('content')
-	<h1> All Employees would show here</h1>
+	<div class='employees'>
+		<h1> Staff Members </h1>
+        @foreach($employees as $employee)
+            <h2>{{ $employee->first_name }} {{ $employee->last_name }}</h2>
+			<h3>{{ $employee->position }}</h3>
+			<h3>DOB: {{ $employee->day }}/{{ $employee->month }}/{{ $employee->year }}</h3>
+        @endforeach
+		<br><br>
+    </div>
 @stop
 
 

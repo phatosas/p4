@@ -33,6 +33,9 @@
     <section>
         {{-- Main page content will be yielded here --}}
         @yield('content')
+		@if(Session::get('flash_message') != null))
+			<div class='flash_message'>{{ Session::get('flash_message') }}</div>
+		@endif
     </section>
 
     <footer>

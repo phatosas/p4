@@ -38,25 +38,23 @@ such as a page specific stylesheets.
 			</select>
 			<br><br>
 		
-			<label>*Date of Birth:</label>
-			<select name="DOBMonth">
-			<option> - Month - </option>
-			<option value="January">January</option>
-			<option value="Febuary">Febuary</option>
-			<option value="March">March</option>
-			<option value="April">April</option>
-			<option value="May">May</option>
-			<option value="June">June</option>
-			<option value="July">July</option>
-			<option value="August">August</option>
-			<option value="September">September</option>
-			<option value="October">October</option>
-			<option value="November">November</option>
-			<option value="December">December</option>
-		</select>
+			<label>* Date of Birth:</label>
+			<select name="month">
+				<option value="January">January</option>
+				<option value="Febuary">Febuary</option>
+				<option value="March">March</option>
+				<option value="April">April</option>
+				<option value="May">May</option>
+				<option value="June">June</option>
+				<option value="July">July</option>
+				<option value="August">August</option>
+				<option value="September">September</option>
+				<option value="October">October</option>
+				<option value="November">November</option>
+				<option value="December">December</option>
+			</select>
 		
-		<select name="DOBDay">
-			<option> - Day - </option>
+		<select name="day">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -90,8 +88,7 @@ such as a page specific stylesheets.
 			<option value="31">31</option>
 		</select>
 		
-		<select name="DOBYear">
-			<option> - Year - </option>
+		<select name="year">
 			<option value="1993">1993</option>
 			<option value="1992">1992</option>
 			<option value="1991">1991</option>

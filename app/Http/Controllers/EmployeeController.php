@@ -15,7 +15,8 @@ class EmployeeController extends Controller
      */
     public function getIndex()
     {
-        return view('employee.index');
+		$employees = \App\Employee::all();
+		return view('employee.index')->with('employees',$employees);
     }
 	
 	 /**
@@ -54,9 +55,16 @@ class EmployeeController extends Controller
 			'last_name' => 'required|min:2|max:30',
         ]);
 		
-		$first_name = $request->input('first_name');
-		$last_name = $request->input('last_name');
-		$ID = $request->input('ID');
+		$employee = new \App\Employee();
+		$employee->first_name = $request->first_name;
+		$employee->last_name = $request->last_name;
+		$employee->position = $request->position;
+		$employee->month = $request->month;
+		$employee->day = $request->day;
+		$employee->year = $request->year;
+		$employee->save();
+		
+		\Session::flash('flash_message','The new employee has been added');
 		return redirect('/employees');
     }
 
