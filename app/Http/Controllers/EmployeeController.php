@@ -25,11 +25,11 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getShow($name = null)
+    public function getShow($id)
     {
-        return view('employee.show', [
-			'name' => $name,
-			]);
+        $employee =\App\Employee::find($id);
+		
+		return view('employee.show')->with('employee',$employee);
     }
 
     /**
@@ -74,9 +74,11 @@ class EmployeeController extends Controller
      * @param  int  $name
      * @return \Illuminate\Http\Response
      */
-    public function getEdit($name = null)
+    public function getEdit($id)
     {
-        //
+        $employee =\App\Employee::find($id);
+		
+		return view('employee.edit')->with('employee',$employee);
     }
 
     /**
@@ -86,9 +88,23 @@ class EmployeeController extends Controller
      * @param  int  $name
      * @return \Illuminate\Http\Response
      */
-    public function postEdit(Request $request, $name = null)
+    public function postEdit(Request $request)
     {
-        //
+        $employee = \App\Employee::find($request->id);
+		$employee->first_name = $request->first_name;
+		$employee->last_name = $request->last_name;
+		$employee->position = $request->position;
+		$employee->month = $request->month;
+		$employee->day = $request->day;
+		$employee->year = $request->year;
+		$employee->save();
+		\Session::flash('flash_message','The employee has been edited');
+		return redirect('/employees/show/'.$request->id);
+    }
+	public function getDelete($id)
+    {
+        $employee =\App\Employee::find($id);
+		return view('employee.delete')->with('employee',$employee);
     }
 
     /**
@@ -97,8 +113,11 @@ class EmployeeController extends Controller
      * @param  int  $name
      * @return \Illuminate\Http\Response
      */
-    public function postDelete($name = null)
+    public function postDelete(Request $request)
     {
-        //
+		$employee = \App\Employee::find($request->id);
+		$employee->delete();
+		\Session::flash('flash_message','The employee has been deleted');
+		return redirect('/employees');
     }
 }

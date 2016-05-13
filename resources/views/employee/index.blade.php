@@ -23,8 +23,9 @@ such as a page specific stylesheets.
             <h2>{{ $employee->first_name }} {{ $employee->last_name }}</h2>
 			<h3>{{ $employee->position }}</h3>
 			<h3>DOB: {{ $employee->day }}/{{ $employee->month }}/{{ $employee->year }}</h3>
-        @endforeach
-		<br><br>
+			<a href='/employees/edit/{{$employee->id}}'>Edit</a>  <a href='/employees/delete/{{$employee->id}}'>Delete</a>
+		@endforeach
+		<br><br><br><br>
     </div>
 @stop
 

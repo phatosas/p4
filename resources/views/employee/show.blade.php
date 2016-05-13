@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Employees
+    Show Employee
 @stop
 
 
@@ -17,11 +17,12 @@ such as a page specific stylesheets.
 
 
 @section('content')
-    @if($name)
-        <h1>Employee: {{ $name }}</h1>
-    @else
-        <h1>No employee chosen</h1>
-    @endif
+	<div class='employee'>
+		<h2>{{ $employee->first_name }} {{ $employee->last_name }}</h2>
+		<h3>{{ $employee->position }}</h3>
+		<h3>DOB: {{ $employee->day }}/{{ $employee->month }}/{{ $employee->year }}</h3>
+		<br><br>
+    </div>
 @stop
 
 
