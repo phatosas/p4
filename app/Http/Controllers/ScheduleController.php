@@ -13,9 +13,10 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getIndex()
     {
-        //
+        $schedules = \App\Schedule::all();
+		return view('schedule.index')->with('schedules',$schedules);
     }
 
     /**
