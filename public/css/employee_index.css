@@ -1,0 +1,19 @@
+.employee {
+    border:1px solid #ccc;
+    margin-right:10px;
+    margin-bottom:10px;
+    min-width:300px;
+    width:25%;
+    float:left;
+    padding:10px;
+}
+
+.employee h2 {
+    font-size:1.2em;
+    margin:1px;
+}
+
+.employee h3 {
+    font-size:1em;
+    margin:1px;
+}
