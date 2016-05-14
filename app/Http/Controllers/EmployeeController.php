@@ -39,7 +39,11 @@ class EmployeeController extends Controller
      */
     public function getCreate()
     {
-        return view('employee.create');
+		if(!\Auth::check() ) {
+			\Session::flash('message','You have to be logged in to create a new book');
+			return redirect('/');
+		}
+		return view('books.create');
     }
 
     /**
